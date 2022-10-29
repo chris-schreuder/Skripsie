@@ -1,0 +1,15 @@
+body{
+    display: inline;
+    margin: 0px;
+    background: #32323A;
+    color: white;
+    overflow:hidden;
+}
+
+.main-welcome{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 5vh;
+}

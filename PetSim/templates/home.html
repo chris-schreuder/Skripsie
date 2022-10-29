@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/home.css') }}" />
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <div class="main-welcome">
+        <h1>Welcome to Pet Simulator</h1>
+    </div>
+    <div class="main-welcome">
+        <form action="/petsim" method="post">
+            <h2>Name your pet to continue:</h2>
+            Name: <input name="name" required/>
+            <br/><br/>
+            <button type="submit">Start Game!</button>
+        </form>
+    </div>
+
+</body>
+</html>

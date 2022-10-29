@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/main.css') }}" />
+    <meta charset="UTF-8">
+    <title>Pet Simulator | Game</title>
+</head>
+<body>
+
+<div id="top-bar">
+    <p>
+        <h1>Pet Simulator</h1>
+    </p>
+</div>
+<div id="main">
+    <div id="display">
+        <div class="display-top">
+            <h2>Pet name: {{ context.name }}</h2>
+        </div>
+        <div class="display-img-container">
+            <img id="pet_img" class="display-img" src="{{url_for('static', filename=context.img)}}">
+        </div>
+    </div>
+    <div id="control">
+        <div class="train">
+            <div class="train-button">
+                <h2>Train</h2>
+                <p>*Press a button and say the instruction to train your pet*</p>
+                <form action="/petsim/train" method="post">
+                    <button type="submit" name="instruct_button" value="0">Call name</button><br>
+                    <button type="submit" name="instruct_button" value="1">Eat</button><br>
+                    <button type="submit" name="instruct_button" value="2">Fetch</button><br>
+                    <button type="submit" name="instruct_button" value="3">Lay down</button><br>
+                    <button type="submit" name="instruct_button" value="4">Sit</button>
+                </form>
+            </div>
+        </div>
+        <div class="command-main">
+            <div class="command">
+                <div class="command-button">
+                    <h2>Command</h2>
+                    <p>*Press a button to command your pet*</p>
+                    <form action="/petsim/command" method="post">
+                        <button type="submit">Command</button>
+                    </form>
+                </div>
+            </div>
+            <div class="reflect">
+                <div class="reflect-button">
+                    <h2>Praise</h2>
+                    <p>*Press a button to praise your pet*</p>
+                    <form action="/petsim/praise" method="post">
+                        <button type="submit">Praise</button>
+                    </form>
+                    <h2>Scold</h2>
+                    <p>*Press a button to scold your pet*</p>
+                    <button type="button">Scold</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

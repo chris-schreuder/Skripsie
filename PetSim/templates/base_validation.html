@@ -1,0 +1,28 @@
+{% extends "admin.html" %}
+
+{% block title %}
+    Base Validation
+{% endblock %}
+
+{% block body %}
+
+<div class="table">
+    {% for table in tables1 %}
+            {{titles1[loop.index]}}
+            {{ table|safe }}
+    {% endfor %}
+</div>
+<div class="table">
+    {% for table in tables2 %}
+            {{titles2[loop.index]}}
+            {{ table|safe }}
+    {% endfor %}
+</div>
+<div class="table">
+    {% for table in tables3 %}
+            {{titles3[loop.index]}}
+            {{ table|safe }}
+    {% endfor %}
+</div>
+
+{% endblock %}

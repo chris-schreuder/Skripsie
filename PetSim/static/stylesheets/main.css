@@ -1,0 +1,118 @@
+body{
+    display: inline;
+    margin: 0px;
+    background: #32323A;
+    color: white;
+    overflow:hidden;
+}
+
+#top-bar{
+    width: 100vw;
+    height: 10vh;
+    padding-top: 1px;
+    text-align: center;
+    border-bottom: 2px solid white;
+}
+
+#main{
+    width: 100vw;
+    height: 90vh;
+}
+
+#display{
+    width: 50%;
+    height: 100%;
+    float: left;
+}
+
+#control{
+    width: 50%;
+    height: 100%;
+    float: left;
+}
+
+.display-top{
+    width: 99%;
+    height: 9%;
+    text-align: center;
+    margin: 0px;
+    padding-top: 10px;
+}
+
+.display-img-container{
+    width: fit-content;
+    height: 85%;
+    margin: auto;
+}
+
+.display-img{
+    width: auto;
+    height: 100%;
+}
+
+.train{
+    width: 49%;
+    height: 99%;
+    float: left;
+    border-left: 2px solid white;
+    border-right: 2px solid white;
+}
+
+.train-button{
+    width:70%;
+    height: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 15%;
+}
+
+.train-button button{
+    width: 100%;
+    height: 50px;
+    margin-top: 20px;
+}
+
+.command-main{
+    width: 49%;
+    height: 100%;
+    float: left;
+}
+
+.command{
+    width: 100%;
+    height: 45%;
+    border-bottom: 2px solid white;
+}
+
+.reflect{
+    width: 100%;
+    height: 45%;
+}
+
+.command-button{
+    width:70%;
+    height: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 15%;
+}
+
+.command-button button{
+    width: 100%;
+    height: 50px;
+    margin-top: 20px;
+}
+
+.reflect-button{
+    width:70%;
+    height: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 5%;
+}
+
+.reflect-button button{
+    width: 100%;
+    height: 50px;
+    margin-top: 5px;
+}

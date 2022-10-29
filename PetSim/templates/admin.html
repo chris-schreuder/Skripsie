@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/admin.css') }}" />
+    <meta charset="UTF-8">
+    <title>Admin - Pet Simulator | {% block title %} {% endblock %}</title>
+</head>
+<body>
+    <div id="top-bar">
+        <p>
+            <h1>Chris Schreuder - Skripsie: Pet Simulator</h1>
+        </p>
+    </div>
+
+    <div>
+        <div class="menu-bar">
+            <ul class="navbar-ul">
+                <li class="navbar-li"><a class="navbar-a" id="MainPageLink" href="{{ url_for('admin') }}">Main</a></li>
+                <li class="navbar-li"><a class="navbar-a" id="MainPageLink" href="{{ url_for('base_validation') }}">Base Validation</a></li>
+                <li class="navbar-li"><a class="navbar-a" id="MainPageLink" href="{{ url_for('signal_visualization') }}">Signal Visualization</a></li>
+            </ul>
+        </div>
+        <div>
+            {% block body %}
+            {% endblock %}
+        </div>
+    </div>
+</body>
+
+</html>
