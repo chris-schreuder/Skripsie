@@ -9,7 +9,7 @@ def extract_features(filepath):
     audio, sr = librosa.load(filepath, sr= 32000, mono=True)
     clip = librosa.effects.trim(audio, top_db= 10)
     sf.write('filtered.wav', clip[0], 32000)
-    f_s, signal = wavfile.read(filepath)
+    f_s, signal = wavfile.read('filtered.wav')
     n_fft = int(0.025 * f_s)  # 25 ms
     hop_length = int(0.01 * f_s)  # 10 ms
     mel_spec = librosa.feature.melspectrogram(

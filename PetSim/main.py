@@ -7,7 +7,7 @@ from coding.audio_handler import rec
 app = Flask(__name__, static_folder='static')
 
 pet: any
-context = {'name': '', 'img': '', 'neutral': True}
+context = {'name': '', 'img': '', 'neutral': True, 'action': 'Neutral'}
 
 
 @app.route('/home')
@@ -27,7 +27,7 @@ def petsim():
     global context
     name = request.form["name"]
     pet = Pet(name=name)
-    context = {'name': name, 'img': pet.pet_img, 'neutral': True}
+    context = {'name': name, 'img': pet.pet_img, 'neutral': True, 'action': 'Neutral'}
     return render_template('main.html', context=context)
 
 
@@ -37,20 +37,35 @@ def train():
     global context
     button = request.form['instruct_button']
     if button == '0':
-        rec(pet.train_instructions[0])
+        file_name = rec(pet.train_instructions[0])
+        pet.addTraining(pet.train_instructions[0], file_name)
         context['img'] = pet.pet_imgs[1]
+        context['action']='Name Called'
+        pet.train_count[0]+=1
     elif button == '1':
-        rec(pet.train_instructions[1])
+        file_name = rec(pet.train_instructions[1])
+        pet.addTraining(pet.train_instructions[1], file_name)
         context['img'] = pet.pet_imgs[2]
+        context['action']='Eating'
+        pet.train_count[1]+=1
     elif button == '2':
-        rec(pet.train_instructions[2])
+        file_name = rec(pet.train_instructions[2])
+        pet.addTraining(pet.train_instructions[2], file_name)
         context['img'] = pet.pet_imgs[3]
+        context['action']='Fetching'
+        pet.train_count[2]+=1
     elif button == '3':
-        rec(pet.train_instructions[3])
+        file_name = rec(pet.train_instructions[3])
+        pet.addTraining(pet.train_instructions[3], file_name)
         context['img'] = pet.pet_imgs[4]
+        context['action']='Laying'
+        pet.train_count[3]+=1
     elif button == '4':
-        rec(pet.train_instructions[4])
+        file_name = rec(pet.train_instructions[4])
+        pet.addTraining(pet.train_instructions[4], file_name)
         context['img'] = pet.pet_imgs[5]
+        context['action']='Sitting'
+        pet.train_count[4]+=1
     context['neutral'] = False
     return render_template('main.html', context=context)
 
@@ -81,14 +96,24 @@ def command():
     print(instruction)
     if instruction == pet.train_instructions[0]:
         context['img'] = pet.pet_imgs[1]
+        context['action']='Name Called'
     elif instruction == pet.train_instructions[1]:
         context['img'] = pet.pet_imgs[2]
+        context['action']='Eating'
     elif instruction == pet.train_instructions[2]:
         context['img'] = pet.pet_imgs[3]
+        context['action']='Fetching'
     elif instruction == pet.train_instructions[3]:
         context['img'] = pet.pet_imgs[4]
+        context['action']='Laying'
     elif instruction == pet.train_instructions[4]:
         context['img'] = pet.pet_imgs[5]
+        context['action']='Sitting'
+    else:
+        context['img'] = pet.pet_imgs[0]
+        context['action']='Did not understand'
+        context['neutral'] = True
+        return render_template('main.html', context=context)
     context['neutral'] = False
     return render_template('main.html', context=context)
 
@@ -99,9 +124,19 @@ def praise():
     global context
     pet.savePraise()
     context['img'] = pet.pet_imgs[0]
-    context['neutral'] = False
+    context['neutral'] = True
+    context['action']='Neutral'
     return render_template('main.html', context=context)
 
+@app.route('/petsim/scold', methods=['POST'])
+def scold():
+    global pet
+    global context
+    pet.scoldPet()
+    context['img'] = pet.pet_imgs[0]
+    context['neutral'] = True
+    context['action']='Neutral'
+    return render_template('main.html', context=context)
 
 if __name__ == '__main__':
     app.run(debug=True, threaded=True)

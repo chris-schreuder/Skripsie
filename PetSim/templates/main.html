@@ -16,6 +16,7 @@
     <div id="display">
         <div class="display-top">
             <h2>Pet name: {{ context.name }}</h2>
+            <h2>Current action: {{ context.action }}</h2>
         </div>
         <div class="display-img-container">
             <img id="pet_img" class="display-img" src="{{url_for('static', filename=context.img)}}">
@@ -54,7 +55,9 @@
                     </form>
                     <h2>Scold</h2>
                     <p>*Press a button to scold your pet*</p>
-                    <button type="button">Scold</button>
+                    <form action="/petsim/scold" method="post">
+                        <button type="submit">Scold</button>
+                    </form>
                 </div>
             </div>
         </div>

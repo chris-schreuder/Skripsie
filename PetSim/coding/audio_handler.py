@@ -34,14 +34,14 @@ def rec(name):
         if name == 'command':
             file_name = "audio/command.wav"
             write(file_name, fs, recording)
-            return 'Command successfully recorded.'
+            return file_name
         elif name == 'name':
             file_name = "audio/name/name" + getRecCount(name) + ".wav"
             write(file_name, fs, recording)
-            return 'Name successfully recorded.'
+            return file_name
         else:
             file_name = "audio/" + name + "/" + name + getRecCount(name) + ".wav"
             write(file_name, fs, recording)
-        return name + ' successfully recorded.'
+        return file_name
     except:
-        return name + ' did not record recorded.'
+        return 'fail'

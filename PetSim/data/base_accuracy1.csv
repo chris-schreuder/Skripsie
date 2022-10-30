@@ -1,2 +1,0 @@
-testNum,numTrain,numTest,totalComp,correct,incorrect,accuracy,time(min)
-1,100,50,5000,49,1,0.98,20.938339428106943
