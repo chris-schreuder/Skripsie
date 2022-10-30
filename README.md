@@ -9,4 +9,4 @@ To run this project, you will need:
 - go to the generated link to few web-application
 
 # notebook
-All the experements can be found in the "Experements" folder
+All the experements can be found in the "Experement" folder
